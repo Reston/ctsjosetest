@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Create or update
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <br>
+    <a class="btn btn-secondary" href="{% url 'user:user-list' %}">Go back</a>
+    <h1>Create a new user</h1>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Save">
+    </form>
+</div>
+{% endblock content %}

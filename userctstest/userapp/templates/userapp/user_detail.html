@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+User {{ object }} details
+{% endblock title %}
+{% block content %}
+<div class="container">
+	<br>
+	<a class="btn btn-secundary" href="{% url 'user:user-list' %}">Go back</a>
+	<div class="jumbotron">
+		<h1>{{ object }}</h1>
+		<h2>Date created: {{ object.date_joined }}</h2>
+	</div>
+</div>
+{% endblock content %}
