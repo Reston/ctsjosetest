@@ -1,4 +1,4 @@
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
@@ -27,6 +27,10 @@ class UserUpdateView(UpdateView):
     model = User
     fields = ['username', 'first_name', 'last_name', 'email']
     pk_url_kwarg = 'uuid'
+
+    def get_success_url(self):
+        return reverse(
+            "user:detail-user", kwargs={'uuid': self.kwargs['uuid']})
 
 
 class UserDeleteView(DeleteView):
